@@ -1,4 +1,4 @@
-using Domain.Enums;
+using Lab1.Domain.Enums;
 namespace Lab1.Domain.Models;
 
 public class Item

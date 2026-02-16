@@ -1,8 +1,8 @@
-namespace Domain.Enums;
+namespace Lab1.Domain.Enums;
 public enum Category
 {
     Laptop,
-    VR,
+    VirtualReality,
     Sensor,
-    usbCDevice
+    UsbCDevice
 }

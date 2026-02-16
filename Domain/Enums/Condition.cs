@@ -1,4 +1,4 @@
-namespace Domain.Enums;
+namespace Lab1.Domain.Enums;
 public enum Condition
 {
     Perfect,
