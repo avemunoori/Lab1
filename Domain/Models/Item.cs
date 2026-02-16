@@ -22,10 +22,27 @@ public class Item
         Status = Status.Available;
     }
 
-    public void UpdateStatus(Status status)
+    public void MarkAvailable()
     {
-        if (status == Status)
-            throw new InvalidOperationException("Status cannot be changed to its current value.");
-        Status = status;
+       if (Status == Status.Available)
+           throw new InvalidOperationException("Item is already marked available");
+       Status = Status.Available;
+    }
+    
+    public void MarkCheckedOut()
+    {
+        Status = Status switch
+        {
+            Status.CheckedOut => throw new InvalidOperationException("Item is already marked checked out"),
+            Status.Lost => throw new InvalidOperationException("Item is marked lost and cannot be checked out"),
+            _ => Status.CheckedOut
+        };
+    }
+    
+    public void MarkLost()
+    {
+        if (Status == Status.Lost) 
+            throw new InvalidOperationException("Item is already marked lost"); 
+        Status = Status.Lost;
     }
 }
