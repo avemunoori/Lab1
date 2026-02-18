@@ -1,5 +1,5 @@
 namespace Lab1.Domain.Enums;
-public enum Action
+public enum TransactionType
 {
     Checkout,
     Return
