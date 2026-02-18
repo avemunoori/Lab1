@@ -10,12 +10,12 @@ public class Receipt
     public DateTime CheckoutDate { get; }
     public DateTime DueDate { get; }
 
-    public Receipt(int itemId, TransactionType type, DateTime dueDate)
+    public Receipt(int itemId, TransactionType type, DateTime dueDate, DateTime checkoutDate)
     {
         ItemId = itemId;
         Type = type;
         DueDate = dueDate;
-        CheckoutDate = DateTime.Now;
+        CheckoutDate = checkoutDate;
     }
 
     public override string ToString() =>
