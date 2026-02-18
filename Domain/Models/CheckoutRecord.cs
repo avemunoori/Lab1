@@ -17,6 +17,4 @@ public class CheckoutRecord
         DueDate = dueDate;
         CheckoutDate = checkoutDate;
     }
-    
-    
 }
