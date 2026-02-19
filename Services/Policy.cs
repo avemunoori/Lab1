@@ -23,9 +23,9 @@ public class Policy : IPolicy
 
     public DateTime NormalizeDueDate(DateTime proposedDate)
     {
-        var today = _clock.Today().Date;
+        var today = _clock.Today();
         
         if (today > proposedDate.Date) throw new ArgumentException("Due date cannot be in the past");
-        return proposedDate.Date;
+        return proposedDate;
     }
 }

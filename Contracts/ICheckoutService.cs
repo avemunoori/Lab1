@@ -9,16 +9,6 @@ namespace Lab1.Contracts;
 public interface ICheckoutService
 {
     /// <summary>
-    /// Gets the catalog for browsing available items.
-    /// </summary>
-    /// <returns>The catalog interface for item browsing.</returns>
-    /// <remarks>
-    /// Pre-conditions: None
-    /// Post-conditions: Returns a valid ICatalog implementation
-    /// </remarks>
-    ICatalog GetCatalog();
-
-    /// <summary>
     /// Checks out an item to a borrower with a specified due date.
     /// </summary>
     /// <param name="itemId">The unique identifier of the item to check out.</param>
@@ -88,17 +78,32 @@ public interface ICheckoutService
     /// <returns>A list of checkout records due within the time window.</returns>
     /// <remarks>
     /// Pre-conditions: None
-    /// Post-conditions: Returns all records with due dates between now and now + window
+    /// Post-conditions: Returns a variable that contains a list of all records that are due soon
     /// </remarks>
     List<CheckoutRecord> FindDueSoon(TimeSpan window);
 
+    /// <summary>
+    /// Prints out a list of all the items that are due soon.
+    /// </summary>
+    /// <param name="window">The time window to search (e.g., next 7 days).</param>
+    /// Pre-conditions: None
+    /// Post-conditions: Prints each CheckoutRecord that is due soon to the console
+    void NotifyDueSoon(TimeSpan window);
+    
     /// <summary>
     /// Finds all checkout records that are currently overdue.
     /// </summary>
     /// <returns>A list of overdue checkout records.</returns>
     /// <remarks>
     /// Pre-conditions: None
-    /// Post-conditions: Returns all records with due dates in the past
+    /// Post-conditions: Returns a variable that contains a list of all records that are overdue
     /// </remarks>
     List<CheckoutRecord> FindOverdue();
+    
+    /// <summary>
+    /// Prints out a list of all the items that are overdue.
+    /// </summary>
+    /// Pre-conditions: None
+    /// Post-conditions: Prints each CheckoutRecord that are overdue to the console
+    void NotifyOverdue();
 }

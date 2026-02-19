@@ -91,13 +91,21 @@ public class CheckoutService : ICheckoutService
                              record.DueDate >= now &&
                              record.DueDate <= windowEnd)
             .ToList();
+        
+        return dueSoonRecords;
+    }
 
-        foreach (var record in dueSoonRecords)
+    public void NotifyDueSoon()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void NotifyDueSoon(TimeSpan window)
+    {
+        foreach (var record in FindDueSoon(window))
         {
             _notifier.DueSoon(record.Borrower, record);
         }
-
-        return dueSoonRecords;
     }
 
     public List<CheckoutRecord> FindOverdue()
@@ -109,12 +117,15 @@ public class CheckoutService : ICheckoutService
                              record.DueDate < now)
             .ToList();
 
-        foreach (var record in overdueRecords)
+        return overdueRecords;
+    }
+
+    public void NotifyOverdue()
+    {
+        foreach (var record in FindOverdue())
         {
             _notifier.Overdue(record.Borrower, record);
         }
-
-        return overdueRecords;
     }
 }
 
