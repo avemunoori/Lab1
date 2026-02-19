@@ -13,21 +13,28 @@ public class Catalog : ICatalog
         _repository = repository;
     }
 
-    public List<Item> ListAvailable()
+    public IReadOnlyList<Item> ListAvailable()
     {
         return _repository.AllItems()
             .Where(item => item.Status == Status.Available)
             .ToList();
     }
 
-    public List<Item> ListCheckedOut()
+    public IReadOnlyList<Item> ListCheckedOut()
     {
         return _repository.AllItems()
             .Where(item => item.Status == Status.CheckedOut)
             .ToList();
     }
 
-    public List<Item> ListAll()
+    public IReadOnlyList<Item> ListLost()
+    {
+        return _repository.AllItems()
+            .Where(item => item.Status == Status.Lost)
+            .ToList();
+    }
+
+    public IReadOnlyList<Item> ListAll()
     {
         return _repository.AllItems();
     }

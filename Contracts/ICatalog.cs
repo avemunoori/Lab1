@@ -15,7 +15,7 @@ public interface ICatalog
     /// Pre-conditions: None
     /// Post-conditions: Returns all items with Status.AVAILABLE
     /// </remarks>
-    List<Item> ListAvailable();
+    IReadOnlyList<Item> ListAvailable();
 
     /// <summary>
     /// Retrieves a list of all items currently checked out.
@@ -25,7 +25,7 @@ public interface ICatalog
     /// Pre-conditions: None
     /// Post-conditions: Returns all items with Status.CHECKED_OUT
     /// </remarks>
-    List<Item> ListCheckedOut();
+    IReadOnlyList<Item> ListCheckedOut();
 
     /// <summary>
     /// Retrieves a list of all items in the catalog, regardless of status.
@@ -35,5 +35,5 @@ public interface ICatalog
     /// Pre-conditions: None
     /// Post-conditions: Returns all items in the catalog
     /// </remarks>
-    List<Item> ListAll();
+    IReadOnlyList<Item> ListAll();
 }

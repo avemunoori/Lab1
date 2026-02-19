@@ -3,33 +3,58 @@ using Lab1.Domain.Models;
 
 public class Repository : IRepository
 {
+    private readonly List<Item> _items;
+    private readonly List<CheckoutRecord> _records;
+
+    public Repository()
+    {
+        _items = new List<Item>();
+        _records = new List<CheckoutRecord>();
+    }
+    
     public void SaveItem(Item item)
     {
-        throw new NotImplementedException();
+        if (item == null) throw new ArgumentNullException(nameof(item));
+        
+        var existing = _items.FirstOrDefault(x => x.Id == item.Id);
+
+        if (existing == null)
+        {
+            _items.Add(item);
+        }
+        else
+        {
+            _items.Remove(existing);
+            _items.Add(item);
+        }
     }
 
     public Item? GetItem(int itemId)
     {
-        throw new NotImplementedException();
+        return _items.SingleOrDefault(x => x.Id == itemId);
     }
 
-    public List<Item> AllItems()
+    public IReadOnlyList<Item> AllItems()
     {
-        throw new NotImplementedException();
+        return _items;
     }
 
     public void SaveRecord(CheckoutRecord record)
     {
-        throw new NotImplementedException();
+        if (record == null) throw new ArgumentNullException(nameof(record));
+        _records.Add(record);
     }
 
     public CheckoutRecord? GetActiveRecordFor(int itemId)
     {
-        throw new NotImplementedException();
+        return _records
+            .Where(r => r.Item.Id == itemId)
+            .OrderByDescending(r => r.CheckoutDate)
+            .FirstOrDefault();
     }
 
-    public List<CheckoutRecord> AllRecords()
+    public IReadOnlyList<CheckoutRecord> AllRecords()
     {
-        throw new NotImplementedException();
+        return _records;
     }
 }

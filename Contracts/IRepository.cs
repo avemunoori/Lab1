@@ -37,7 +37,7 @@ public interface IRepository
     /// Pre-conditions: None
     /// Post-conditions: Returns all items in the repository
     /// </remarks>
-    List<Item> AllItems();
+    IReadOnlyList<Item> AllItems();
 
     /// <summary>
     /// Saves a checkout record to the repository.
@@ -69,5 +69,5 @@ public interface IRepository
     /// Pre-conditions: None
     /// Post-conditions: Returns all checkout records in the repository
     /// </remarks>
-    List<CheckoutRecord> AllRecords();
+    IReadOnlyList<CheckoutRecord> AllRecords();
 }

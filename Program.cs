@@ -11,7 +11,12 @@ class Program
     {
         Console.WriteLine("Hello, World!");
 
+        var repo = new Repository();
         var item = new Item(1, "TestItem", Category.Laptop, Condition.Perfect);
+        var item2 = new Item(1, "TestItem2", Category.Laptop, Condition.Perfect);
+        repo.SaveItem(item);
+        repo.SaveItem(item2);
+        
         Console.WriteLine(item.Status);
         item.MarkLost();
         Console.WriteLine(item.Status);
