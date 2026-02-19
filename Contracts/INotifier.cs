@@ -1,5 +1,4 @@
 using Lab1.Domain.Models;
-
 namespace Lab1.Contracts;
 
 /// <summary>

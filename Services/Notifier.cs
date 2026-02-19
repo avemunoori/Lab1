@@ -1,6 +1,16 @@
-namespace DefaultNamespace;
+using Lab1.Contracts;
+using Lab1.Domain.Models;
+namespace Lab1.Services;
 
-public class Notifier
+public class Notifier : INotifier
 {
-    
+    public void DueSoon(Borrower borrower, CheckoutRecord record)
+    {
+        Console.WriteLine($"Item ID: {record.Item.Id} | Borrowed by {borrower.Name} | {borrower.Email}");
+    }
+
+    public void Overdue(Borrower borrower, CheckoutRecord record)
+    {
+        Console.WriteLine($"Item ID: {record.Item.Id} | Borrowed by {borrower.Name} | {borrower.Email}");
+    }
 }

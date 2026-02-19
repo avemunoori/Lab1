@@ -1,6 +1,7 @@
 ﻿using Lab1;
 using Lab1.Domain.Models;
 using Lab1.Domain.Enums;
+using Lab1.Services;
 
 namespace Lab1;
 
@@ -19,5 +20,8 @@ class Program
         Console.WriteLine(borrower.Email);
         borrower.UpdateEmail("NewEmail@Email.com");
         Console.WriteLine(borrower.Email);
+
+        Notifier notifier = new Notifier();
+        
     }
 }
