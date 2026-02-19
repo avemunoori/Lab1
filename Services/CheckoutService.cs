@@ -95,11 +95,6 @@ public class CheckoutService : ICheckoutService
         return dueSoonRecords;
     }
 
-    public void NotifyDueSoon()
-    {
-        throw new NotImplementedException();
-    }
-
     public void NotifyDueSoon(TimeSpan window)
     {
         foreach (var record in FindDueSoon(window))
