@@ -9,6 +9,13 @@ namespace Lab1.Contracts;
 public interface ICheckoutService
 {
     /// <summary>
+    /// Gets the catalog
+    /// </summary>
+    /// <returns>
+    /// The catalog
+    /// </returns>
+    ICatalog GetCatalog();
+    /// <summary>
     /// Checks out an item to a borrower with a specified due date.
     /// </summary>
     /// <param name="itemId">The unique identifier of the item to check out.</param>

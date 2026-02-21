@@ -8,13 +8,15 @@ public class Notifier : INotifier
     {
         if (borrower == null) throw new ArgumentNullException(nameof(borrower));
         if (record == null) throw new ArgumentNullException(nameof(record));
-        Console.WriteLine($"Item ID: {record.Item.Id} | Borrowed by {borrower.Name} | {borrower.Email}");
+        Console.WriteLine(
+            $"Item ID: {record.Item.Id} | Borrowed by {borrower.Name} | {borrower.Email} | Due: {record.DueDate}");
     }
 
     public void Overdue(Borrower borrower, CheckoutRecord record)
     {
         if (borrower == null) throw new ArgumentNullException(nameof(borrower));
         if (record == null) throw new ArgumentNullException(nameof(record));
-        Console.WriteLine($"Item ID: {record.Item.Id} | Borrowed by {borrower.Name} | {borrower.Email}");
+        Console.WriteLine(
+            $"Item ID: {record.Item.Id} | Borrowed by {borrower.Name} | {borrower.Email} | Was Due: {record.DueDate}");
     }
 }

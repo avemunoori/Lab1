@@ -4,5 +4,6 @@ public enum Category
     Laptop,
     VirtualReality,
     Sensor,
-    UsbCDevice
+    UsbCDevice,
+    Other
 }

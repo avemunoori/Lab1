@@ -18,6 +18,13 @@ public class Receipt
         CheckoutDate = checkoutDate;
     }
 
-    public override string ToString() =>
-        $"Your receipt:\n{CheckoutDate} | Checkout (due {DueDate}) | {ItemId}";
+    public void Checkout()
+    {
+        Console.WriteLine($"\nYour receipt:\n{CheckoutDate} | Checkout (due {DueDate}) | {ItemId}");
+    }
+
+    public void Return()
+    {
+        Console.WriteLine($"\nYour receipt:\n{DateTime.Now} | Return | {ItemId}");
+    }
 }

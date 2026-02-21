@@ -52,6 +52,10 @@ public class CheckoutService : ICheckoutService
         var item = _repository.GetItem(itemId);
         if (item == null)
             throw new ArgumentException($"Item {itemId} does not exist.");
+        if (item.Status == Status.Available)
+            throw new ArgumentException($"Item {itemId} is available.");
+        if (item.Status == Status.Lost)
+            throw new ArgumentException($"Item {itemId} is lost.");
 
         var activeRecord = _repository.GetActiveRecordFor(itemId);
         if (activeRecord == null || item.Status != Status.CheckedOut)
