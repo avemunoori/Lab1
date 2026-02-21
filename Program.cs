@@ -1,4 +1,7 @@
-﻿using Lab1;
+﻿// JJ Botticchio - 801365329
+// Aaryan Vemunoori
+
+using Lab1;
 using Lab1.Contracts;
 using Lab1.Domain.Models;
 using Lab1.Domain.Enums;
@@ -14,6 +17,7 @@ class Program
     private static INotifier _notifier = null!;
     private static ICheckoutService _checkoutService = null!;
     private static ICatalog _catalog = null!;
+    
     static void Main(string[] args)
     {
         Initialize();
