@@ -1,5 +1,5 @@
 ﻿// JJ Botticchio - 801365329
-// Aaryan Vemunoori
+// Aaryan Vemunoori - 801361928
 
 using Lab1;
 using Lab1.Contracts;
